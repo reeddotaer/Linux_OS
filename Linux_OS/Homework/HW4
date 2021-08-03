@@ -1,0 +1,56 @@
+1. 我们知道/usr目录下全部是子目录，想要统计/usr目录下各个子目录所占用的磁盘空间以及/usr占的总空间，请给出相应的命令。
+
+2. 假设当前工作目录下有如下内容：
+$ ls
+intro notesb ref2 section1 section3 section4b tmpa
+notesa ref1 ref3 section2 section4a sentrev tmpb
+请采用文件通配符列出如下文件，字符越少越好
+a. 所有以section开始的文件名
+b. 仅仅列出section1,section2和section3
+c. 列出以n或者s开头以ab结尾的文件名
+d. 正好为4个字符的文件名
+e. 除了intro之外的所有文件
+
+3. 创建一个文件book，其内容来自于另外两个文件part1和part2,请给出相应的命令
+
+
+4. 假设cmd命令从标准输入读，进行相应的处理后写到标准输出。现在希望cmd处理文件numbers总的内容，最后输出到phone_list，请给出相应的命令
+
+
+5. 假设执行cmd命令，希望将标准输出和标准错误都重定向文件log中，最终你决定采用如下命令
+cmd >log 2>log
+请问上述命令有什么问题？正确的命令应该是什么？
+
+ 
+
+6. >tmp 这一条命令有没有问题，如果没有，其作用是什么？
+
+
+
+
+
+1. du -c -d 1 /usr
+
+2. a. section*
+
+b. section[1-3] 或者 section?
+
+c. [n,s]*ab
+
+d. ????
+
+e. !(intro)
+
+3. cat part1 part2 > book
+
+4. cmd <numbers >phone_list
+
+5. 会有覆盖的风险
+
+正确的命令应该是 cmd &> log
+
+6. 没有问题
+
+当tmp文件不存在是创建一个新的文件tmp
+
+当tmp文件存在时清空该文件的内容

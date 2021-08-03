@@ -1,0 +1,39 @@
+1.
+sudo useradd -m -s /bin/bash lx_wang
+sudo useradd -m -s /bin/bash lx_lee
+sudo useradd -m -s /bin/bash lx_wu
+sudo passwd lx_wang
+sudo passwd lx_lee
+sudo passwd lx_wu
+sudo groupadd linux
+sudo usermod -a -G linux lx_wang
+sudo usermod -a -G linux lx_lee
+sudo usermod -a -G linux lx_wu
+sudo usermod -a -G sudo lx_wang
+
+2.
+dd if=/dev/zero of=abc.img bs=1M count=100
+mkfs -t ext4 abc.img
+sudo mkdir /mnt/home2
+sudo mount abc.img /mnt/home2
+
+3.
+sudo mkdir /mnt/home2/students
+sudo chown lx_wang:linux /mnt/home2/students
+su lx_wang
+
+4.
+sudo ls -l /mnt/home2/students
+sudo chmod -v g+ws /mnt/home2/students
+sudo umask 0007
+
+5.
+sudo mkdir -p /mnt/home2/students/pictures/{2010..2016}/{1..12}
+sudo touch /mnt/home2/students/pictures/{2010..2016}/{1..12}/file-{a..z}.jpg
+
+6.
+sudo find /mnt/home2/students/pictures/2016 -name 'file-[a,b].jpg' -exec dd if=/dev/random of={} bs=2000 count=1 \;
+sudo find /mnt/home2/students/pictures/2015 -name 'file-[a,d].jpg' -exec dd if=/dev/random of={} bs=3000 count=1 \;
+
+7.
+sudo find /mnt/home2/students -size +1999c -a -size -3001c -a -name '*.jpg'

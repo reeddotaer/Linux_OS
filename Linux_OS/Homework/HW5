@@ -1,0 +1,109 @@
+1. 不使用引用，请给出相应的命令，以输出如下两行文本： 
+t= 10;
+t=t>4?t*4:t**4
+
+
+2. 现在允许使用引用，请给出相应的命令，完成题1。
+
+ 
+
+3. 假设有如下命令，不执行该命令，你能给出该命令输出的结果吗？
+printf '%s\n%s\n' 'F1\tF2' '1\tPython'
+
+ 
+
+4. 第3题中的格式化字符串中应该如何修改，才能够输出如下文本(两列文本之间以制表符隔开)？
+F1           F2
+1             Python
+
+ 
+
+5. 请利用环境变量，给出当前主机名、用户名、使用的shell以及用户主目录
+
+ 
+
+6. 要创建一个环境变量SPORT，其包含的值为High Jump，请给出相应的命令
+
+ 
+
+7. 在第6题创建的变量SPORT的基础上，请给出下述命令的输出,并且说明每个echo命令后面有几个参数。
+echo $SPORT
+echo '$SPORT'
+echo "$SPORT"
+echo $'SPORT\t$SPORT'
+
+ 
+
+8. 关于执行外部命令相关，请回答下述问题：
+a. 如果我想要在执行外部命令时，在如下的目录中按照先后顺序搜索，应该怎么设置？
+* /usr/local/bin
+* /usr/bin
+* /bin
+* 用户主目录下的bin目录
+* 当前工作目录
+
+b. 如果/usr/bin目录下有一个doit执行程序，在用户主目录下的bin目录下也有一个doit执行程序，会执行哪个？
+
+c. 如果a中搜索目录列表中没有当前工作目录，要执行当前工作目录下的doit程序，应该怎样执行？
+
+d. 假设你已经按照a设置好了，现在想要在最后添加一个新的搜索目录 /opt/bin，请给出相应的命令
+
+ 
+
+9. 在用户的.bashrc中发现了如下语句：
+export LC_ALL=C
+export LANG=zh_CN.UTF-8
+a. 现在执行date命令，日期的输出是采用中国的习惯还是美国的习惯？为什么？
+b. 不改变shell本身的环境变量设置，在执行date命令时希望采用中国的习惯，请给出相应的命令。
+
+
+
+
+
+
+
+
+
+1. echo t=\ 10
+
+echo t=t\>4\?t\*4\:t\*\*4
+
+2. echo -e "t= 10\nt=t>4?t*4:t**4"
+
+3. F1\tF2
+
+1\tPython
+
+4. printf '%b\n%b\n' 'F1\tF2' '1\tPython'
+
+5. $HOSTNAME
+
+$USER
+
+$SHELL
+
+$HOME
+
+6. export SPORT='High Jump'
+
+7.  High Jump 2
+
+$SPORT 1
+
+High Jump 2
+
+SPORT    $SPORT
+
+8. a.按照下面的顺序修改PATH目录
+
+b.
+
+c. 在命令前包含当前路径
+
+d. PATH=$PATH:~/bin:.
+
+9.
+
+a. 美国格式，因为LC_ALL优先级最高，C表示没有进行本地化，使用传统的美国ANSI C区域
+
+b. LC_ALL=zh_CN.UTF-8 date

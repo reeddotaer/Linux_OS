@@ -1,0 +1,49 @@
+1. 要以另外一个用户test身份启动一个全新的登录shell，请给出相应的sudo命令。
+
+2. 给出一个普通文件的文件名，你能够知道该文件是硬连接吗？也就是你能够知道其是否是使用ln命令创建的吗？用一句话说明理由。
+
+3. 请创建一个名为slnk的指向linux/slides/1.pdf的符号链接，给出相应的命令。接下来cat slnk，结果报错
+cat: slnk: No such file or directory
+请问是什么原因？
+
+4. 假设某个目录的权限如下，并且假设slides目录下有一个名为readme的文件，用户test有readme的读权限，
+d--x--x--- 3 test pubs 512 2020-03-10 15:16 slides
+当前用户为test，请问：
+(a) cd slides会出错吗？请说明理由
+(b) ls slides会出错吗？请说明理由
+(c) cat slides/readme会出错吗？请说明理由
+
+5. 把下列符号方式表示的权限转换为八进制数字形式：
+(a) rwxr-xrw-
+(b) --x-w-r--
+
+6. 你希望新建的普通文件的权限为 rw-rw----，应该怎么设置？
+
+
+1. sudo -u test su - test
+
+2. 不能，hard link文件与原文件地位等价，是一个inode的不同名字。
+
+3. ln -s linux/slides/1.pdf slnk
+
+这个文件不存在
+
+4.
+
+不会出错 这个目录叫slides，拥有者是test，拥有者拥有执行权限，可以用cd切换
+
+会出错 用户对目录没有r权限，只有x权限，只能搜索不能列出
+
+不会出错 用户对目录有x权限，对文件有r权限，所以可以执行cat
+
+5. 756
+
+124
+
+6. umask 117 
+
+
+
+
+1 -u test切换为test了，然后执行su - test又要输入test的密码，sudo su - test就可以
+6 目录希望有x权限

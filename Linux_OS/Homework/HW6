@@ -1,0 +1,107 @@
+1. 要找出外部命令cmd所在的位置，请给出两种方法。
+
+2. 我们知道bash支持选择结构和循环结构，如果想要查看case语句的用法，应该使用什么命令？
+
+3. 通过图形界面启动终端应用，会执行哪些shell的配置文件？
+
+4. 修改了用户配置文件.bashrc之后，应该执行什么命令使得用户的修改马上起作用？
+
+5. 执行如下命令，请给出该命令做了什么事情。bash执行时是交互式还是非交互式方式？是登录shell方式还是非登录shell方式，会执行用户主目录下的.bashrc吗？
+         bash -c 'date >> /tmp/tmp.$(date +%m-%d)'
+
+6. 假设要在当前目录下创建如下目录结构：
+c/slides/
+c/homeworks/
+c/quizs/
+python/slides/
+python/homeworks/
+python/quizs/
+请用一条语句，尽量少的文本来完成上述任务。
+
+7. 要在当前目录下创建10个空的普通文件，分别命名为tmp00.txt,tmp01.txt,....,tmp09.txt，请用一条语句，尽量少的文本来完成上述任务。
+
+8. 请写一个简单的脚本，询问用户的名字，然后输出：欢迎某某来到Linux世界。
+
+9. 请简单描述下面两条命令执行时有什么区别？
+        echo $(date; ls /)
+        echo "$(date; ls /)"
+
+10. 假设pipefail选项关闭， 请简单描述一下这个命令的执行步骤
+            ! foo1 && foo2 | foo3 > foo4
+
+
+
+
+
+
+1. type cmd
+
+which cmd
+
+whereis cmd
+
+ 
+
+2.  help -s case
+
+ 
+
+3. 系统级的 /etc/bash.bashrc
+
+用户级的 用户主目录下的.bashrc
+
+ 
+
+4. source ~./bashrc.
+
+ 
+
+5. 
+
+把当前日期追加到/tmp/tmp.当前月日这个文件下
+
+非交互方式
+
+非登陆shell
+
+不会执行用户主目录下的.bashrc
+
+ 
+
+6. mkdir -p ./{c,python}/{slides,homeworks,quizs}
+
+ 
+
+7. touch tmp{00..09}.txt
+
+ 
+
+8. 
+
+#! /usr/bin/env bash
+
+read -p 'Please input your name...' name
+
+echo "welcome to Linux word, $name"
+
+ 
+
+9. 
+
+第一条命令在两个输出之间是空格
+
+第二个命令会换行
+
+因为双引号避免了单词分割
+
+ 
+
+10. 
+
+先执行foo1&&foo2，此时有短路
+
+通过管道将状态码给到foo3 > foo4
+
+管道命令只返回最后一个命令执行后的状态码
+
+最后!改变管道命令最后返回的状态码

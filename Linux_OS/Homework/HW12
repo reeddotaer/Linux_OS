@@ -1,0 +1,43 @@
+1 希望以NI值为5执行gedit应用程序，应该使用什么命令？
+
+2 如果希望将第1题的gedit应用程序的NI值改为10，应该怎么办？
+
+3 你发现硬盘上的空间比较吃紧，决定找到那些文件大小超过50M的文件，请给出相应的命令。
+
+4 最近实验室有同学毕业了，tony用户还没有删除，但其他同学的账号都删除掉了，你想要找到这些毕业的同学(包括tony)在主机上拥有的所有文件，将这些文件名保存到graduate.txt中。请给出相应的命令。
+
+5 你想要找到当前目录以及各级子目录下中，那些用户、用户组和其他人都具有写权限的目录，请给出相应的命令。
+
+6 你更改了/etc目录下某个配置文件的内容，但却忘记更改了哪个文件，请找到最近10分钟内修改过的文件，给出相应的命令。
+
+7 在/etc目录中查找文件名包含net并且以.conf结尾的配置文件，对于每个找到的文件，输出一行 I found xxx，下面给出了相应的示例：
+I found /etc/dbus-1/system.d/net.hadess.SensorProxy.conf
+I found /etc/sysctl.d/10-network-security.conf
+I found /etc/bluetooth/network.conf
+I found /etc/sane.d/dell1600n_net.conf
+I found /etc/sane.d/net.conf
+I found /etc/modprobe.d/blacklist-rare-network.conf
+(a) 仅仅使用find命令完成上述功能，请给出相应的find命令
+(b) find和xargs结合，请给出相应的管道命令
+
+
+
+1. nice -n 5 gedit
+
+2. renice -n 10 PID
+
+这里的PID为上一条命令执行后显示的进程ID
+
+3. find ~ -size +50M
+
+4. find /home -nouser -o -user tony > graduate.txt
+
+5. find . -perm -222 -type d
+
+6. find /etc -mmin -10
+
+7. 
+
+sudo find /etc -name '*net*.conf' -exec echo I found {} \;
+
+sudo find /etc -name '*net*.conf' -print0 | xargs -0r -I {} echo I found {}

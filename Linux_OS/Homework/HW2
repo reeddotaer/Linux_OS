@@ -1,0 +1,36 @@
+1. 下列关于桌面环境相关的描述中，正确的是(            )
+A. X Server为X Client提供输入和显示服务
+B. 显示服务器接受X Client的请求，将X client在窗口上绘制的图形在显示器上呈现
+C. 假设环境变量DISPLAY=:1，现在启动一个X应用，将在本机的编号为1的X Server对应的屏幕上输出
+D. 窗口管理器负责管理X Client对应的窗口,处理窗口的移动、重叠、大小调整等操作
+
+2. 假设用户执行命令 mycmd --verbose -atf arg1 -- arg2 arg3，请问有哪些选项，每个选项的参数是什么，mycmd的参数是什么？
+
+3. 假设你不记得一个用于查找(find)硬盘上的文件(file)的命令了，应该使用什么命令来寻找呢？
+
+4. 刚才执行cat arg1 arg2 arg3 arg4命令，现在想要执行gcc arg1 arg2 arg3 arg4，使用命令历史扩展，请给出相应的命令
+
+5. 假设你想要查看系统上的硬件相关的情况，比如cpu/hardware的信息，还有usb/pci接口设备以及块设备(block device)，使用自动完成找到ls开头的命令，你能够找出相应的命令吗？ 尝试执行一下这些命令。
+
+6. 想要设置一个别名h，显示命令历史的最近20条记录，请给出相应的命令
+
+
+
+
+1.ABCD
+
+2.选项有长选项verbose和短选项atf，其中长选项verbose没指定参数，短选项atf的参数是arg1
+
+命令mycmd参数有arg2和arg3
+
+3.apropos -a file list
+
+或者使用man -k file list（但是不支持-a选项了）
+
+4.!!:s/cat/gcc
+
+5.ls<TAB>
+
+分别是lscpu，lspci，lsusb，lsblk
+
+6.alias h='history 20'

@@ -1,0 +1,86 @@
+1. 按哪个键删除刚刚输入的最后一个字符？删除最后一个单词呢？删除整行呢？
+
+2. 在终端快捷键中，不能被忽略的是哪个？该快捷键的作用是什么？
+
+3 Linux系统的文件名的限制很少，请问文件名不能使用哪些字符？
+
+4. 请给出命令来完成如下和工作目录相关的操作
+a. 工作目录设置为你的主目录
+b. 显示当前工作目录
+
+5. 使用cd命令改变工作目录，要求采用相对路径名
+a. 从/var/spool/lp/admins到/var/spool/mail
+b. 从/usr/include/sys到/usr
+
+6. 请给出这两个命令的区别 ls .. ; ls -d ..
+
+7. 在使用ls查看目录的内容时，请给出下面各个小题中应该使用什么选项？
+a. 所有文件，包括隐藏文件
+b. 按照文件名的相反顺序显示内容
+c. 不仅仅包含目录中的内容，还要包含各级子目录
+d. 在每个文件后显示文件指示(比如/表示目录)
+e. 以适合人类阅读的方式显示每个文件的大小
+
+8. 解释ls -lu 和 ls -lut的区别
+
+9. 假设工作目录为/home/max，用最少的命令完成如下功能：
+a. 创建目录books/literature/english/shakespears
+b. 在这个目录中创建一个空文件 hamlet.txt
+c. 删除literature目录以及各级子目录下的内容
+
+10. 要将目录bar1拷贝到bar2，应该使用什么命令，目录bar2存在和不存在有什么区别？
+
+11. 要将目录bar1移动到bar2，应该使用什么命令，目录bar2存在和不存在有什么区别？
+
+
+
+
+1. Ctrl+H Ctrl+W Ctrl+U
+
+2.Ctrl+Z 把进程转为后台
+
+3.不能使用点和双点，不能包含斜杠和NULL字符
+
+4.cd
+
+pwd
+
+5.cd ../../mail
+
+cd ../..
+
+6.ls ..表示列出当前目录父目录所包含内容的信息，ls -d ..表示列出当前目录父目录本身的信息
+
+7.
+
+a. ls -a
+
+b. ls -r
+
+c. ls -R
+
+d. ls -F
+
+e. ls -lh
+
+8. ls -lu表示按长列表显示当前目录的信息，时间显示为访问时间
+
+ls -lut 表示按长列表显示当前目录的信息，时间显示为访问时间，按照访问时间从新到旧的顺序排序
+
+9.a. mkdir -p books/literature/english/shakespears
+
+b. touch books/literature/english/shakespears/hamlet.txt
+
+c. rm -rf books/literature
+
+10.cp -r bar1 bar2
+
+bar2不存在，复制目录并改名
+
+bar2存在，merge其中的内容，即把bar1中的内容放到原来的bar2目录中
+
+11.mv bar1 bar2
+
+bar2不存在，详单于移动并重命名
+
+bar2存在，仅当bar2是空目录时会覆盖，否则失败并报错

@@ -1,0 +1,43 @@
+1 要查看/etc/bash.bashrc的前面5行的内容，请给出相应的命令。
+
+2 要查看/etc/bash.bashrc文件从第6行开始的所有内容，请给出相应的命令
+
+3 在当前目录下有多个以后缀.py结尾的python源程序，要统计这些源程序总共有多少行，请给出相应的命令
+
+4 下面给出了/etc/passwd中的其中某行，要从/etc/passwd文件中得到其中一部分的内容，仅仅包括用户名和用户主目录，请给出相应的命令
+root:x:0:0:root:/root:/bin/bash
+
+5 要对/etc/passwd文件进行排序后写到标准输出，按照用户ID的顺序从大到小排列，请给出相应的命令
+
+6 要把一个文本文件(比如/etc/hosts)中所有的数字都替换为*，然后写到标准输出，请给出相应的命令
+
+7 下述echo命令产生的输出中有多个空格，我们希望最后输出的文本中多个连续的空格都变为一个空格，请给出相应的管道命令
+echo 'The quick brown fox jumped for food.'
+
+
+
+
+
+1. head -n 5 /etc/.bashrc
+
+2. tail -n +6 /etc/bash.bashrc
+
+3. find . -name '*.py' -exec wc -l {} \;
+
+4.
+
+root:x:0:0:root:/root:/bin/bash
+
+cut -d: -f 1,6 /etc/passwd
+
+5. sort -t: -k 3,3rn /etc/passwd
+
+6. tr -s '0-9' '*' < /etc/hosts
+
+7.
+
+echo 'The quick brown fox jumped for food.'
+
+echo -e 'The quick brown fox jumped for food.' | tr -s '\n'
+
+7 压缩空格，不是换行符

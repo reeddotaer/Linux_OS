@@ -1,0 +1,50 @@
+此作业锁定于 2020年2月28日 12:00。
+1. 谁发明了Linux？
+a. Ken Thompson和Dennis Ritchie     b. Bill Joy
+c. Steve Jobs                                                     d. Linus Torwalds
+e. Andrew Tanenbaum                               f. Richard Stallman
+
+2. 下列描述正确的是？
+a. Linux操作系统=GNU + Linux
+b. Linux操作系统的内核为开源的Darwin
+c. BSD/Unix也是Linux操作系统的一种
+d. 以上都是错误的
+
+3. 假设要执行sudo mycmd，请问：
+a. 要输入谁的密码？
+b. 以谁的身份执行mycmd？
+c. 接下来执行 sudo mycmd1，还要求输入密码吗？
+
+4. 假设用户在访问虚拟控制台3，现在要切换到虚拟控制台5，怎么样进行切换？
+
+5. 假设你要以tony的身份登录到IP地址为192.168.0.1的SSH服务器，该SSH服务器在端口4321上提供服务，请给出相应的ssh命令
+
+6. 退出shell可以使用什么快捷键？
+
+7. 执行sudo shutdown +60之后会发生什么？
+
+8. 如果想要看看Linux主机使用的是哪个发行版，应该使用什么命令？
+
+9. 如果你想要知道Linux主机使用的是哪个内核版本，应该使用什么命令？
+
+d
+
+a
+
+超级管理员
+
+root身份
+
+默认情况下15分钟内不用
+
+chvt5
+
+ssh -l tony -p 4321 192.168.0.1
+
+CTRL+D
+
+现在起60分钟后关机
+
+lsb_release -a
+
+uname -a

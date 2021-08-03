@@ -1,0 +1,60 @@
+1 把/usr/share/doc/grep/TODO.gz文件解压到当前工作目录中，新的文件名为grep-todo.txt。请给出相应的命令。
+
+ 
+
+2 把/etc/apt目录归档到当前目录并压缩，取名为apt.tar.gz。请给出相应的命令
+
+ 
+
+3 要查看第2题产生的apt.tar.gz中归档之前的文件的内容，请给出相应的命令。
+
+ 
+
+4 要从第2题中产生的apt.tar.gz中提取etc/apt/sources.list，请给出相应的命令。
+
+ 
+
+接下来的题目5-7 将使用/usr/share/dict/words文件进行操作。
+
+5 想要统计以words文件中所有以x或y开始的行的个数，x和y可以是大写字母，请给出相应的命令
+
+ 
+
+6 想要找到所有以3到5个元音字母(aeiou)结尾的行，请给出相应的命令。
+
+ 
+
+7 想要找到以abc开头且正好包括5个字符的单词，请给出相应的命令
+
+ 
+
+8 请问两个不能忽略的信号分别是什么？如果进程收到这两个信号，结果会怎样？
+
+ 
+
+9 假设某个进程的进程ID为4444，请给出相应的命令以确保该进程被杀死。
+
+
+
+
+1. gzip -d /usr/share/doc/grep/TODO.gz > ./grep-todo.txt
+
+2. tar cvzf apt.tar.gz /etc/apt
+
+3. tar tvzf apt.tar.gz
+
+4. tar xvzf apt.tar.gz etc/apt/sources.list
+
+5. egrep -c -i '^[xy]' /usr/share/dict/words
+
+6. egrep '[aeiou]{3,5}$' /usr/share/dict/words
+
+7. egrep '^[abc]\w{4}$' /usr/share/dict/words
+
+8.
+
+KILL 立即终止进程
+
+STOP 挂起/暂停 进程
+
+9. kill -TERM -4444
